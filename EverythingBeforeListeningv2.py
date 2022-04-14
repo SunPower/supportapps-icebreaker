@@ -197,13 +197,13 @@ for index_bin, row_bin in long5_sv_df.iterrows():
 #%% Dash
 app = Dash(__name__)
 
-fig = px.bar(long5_sv_df, x="Calls", y="Amount", color="City", barmode="group")
+fig = px.bar(long5_sv_df, x="totalDurationMinutes", y="contactId", barmode="group")
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello Dash'),
+    html.H1(children='Icebreaker Dashboard'),
 
     html.Div(children='''
-        Dash: A web application framework for your data.
+        Visualizing data from our calls
     '''),
 
     dcc.Graph(
@@ -211,6 +211,9 @@ app.layout = html.Div(children=[
         figure=fig
     )
 ])
+
+if __name__ == '__main__':
+    app.run_server()
 # %% Read
 #Silence Params
 # tuning_noise = -10
