@@ -189,25 +189,86 @@ for index, row in long5_sv_df.iterrows():
 # %% Download 5 x Longest SV Calls
 api_nm_bin = 'files'
 
-i = 0
-for index_bin, row_bin in long5_sv_df.iterrows():
-    head = nice_auth()
-    g = URLGrabber(ssl_verify_peer = False, ssl_verify_host = False)
-    ocal_filename = g.urlread(url=url_cluster + api_nm_bin + '?fileName=' + row_bin['file_url'], http_headers=tuple(head.items()))
-    oocal_filename = base64.b64decode(str(ocal_filename).split(':')[2])
+# i = 0
+# for index_bin, row_bin in long5_sv_df.iterrows():
+#     head = nice_auth()
+#     g = URLGrabber(ssl_verify_peer = False, ssl_verify_host = False)
+#     ocal_filename = g.urlread(url=url_cluster + api_nm_bin + '?fileName=' + row_bin['file_url'], http_headers=tuple(head.items()))
+#     oocal_filename = base64.b64decode(str(ocal_filename).split(':')[2])
 
-    print('Writing #{} ID-{}, {} minutes long'.format(i+1,row_bin['contactId'], int(row_bin['totalDurationMinutes'])))
+#     print('Writing #{} ID-{}, {} minutes long'.format(i+1,row_bin['contactId'], int(row_bin['totalDurationMinutes'])))
 
-    with open('wk{}_{}_{}min_{}.wav'.format(row_bin['wk'],i,int(row_bin['totalDurationMinutes']),row_bin['contactId']), 'wb') as f:
-        f.write(oocal_filename)
-    i += 1
+#     with open('wk{}_{}_{}min_{}.wav'.format(row_bin['wk'],i,int(row_bin['totalDurationMinutes']),row_bin['contactId']), 'wb') as f:
+#         f.write(oocal_filename)
+#     i += 1
 # HERE WE GO!
+# %% Readadd
+#Silence Params
+tuning_noise = -10
+tuning_min_silence = 120
+tuning_min_gap = 30
+#Snip Params
+driver_detect_call = 300
+driver_detect_sil = 45
+res_detect_sil = 45
+
+#new_long_wavs = [wav for wav in os.listdir() if (wav[:3]=='wk' + str(df['wk'].max())) & (wav[-3:] == 'wav')]
+new_long_wavs = [wav for wav in os.listdir() if (wav[:3]=='wk6') & (wav[-3:] == 'wav')] #script-test
+new_long_txt = [txt[:-4]+'.txt' for txt in new_long_wavs]
+%% 
+c = 0
+dd = pd.DataFrame()
+for dumwav in new_long_wavs:
+    wav = new_long_wavs[c]
+    #os.system(r'cmd /c ffmpeg -i ' + new_long_wavs[c] + r' -af silencedetect=noise=' + str(tuning_noise) + r'dB:duration=' + str(tuning_min_silence) + r',ametadata=print:file=' + new_long_txt[c] + r' -f null -')
+    os.system(r'cmd /c ffmpeg -i {} -af silencedetect=noise={}dB:duration={},ametadata=print:file={} -f null -'.format(wav, tuning_noise,tuning_min_silence,new_long_txt[c]))
+    long_df = pd.read_csv(new_long_txt[c], delimiter = '=', names = ['Name','Value'])
+    long_df = long_df[long_df['Value']>0]
+    if long_df.loc[long_df.index.max(),'Name'] == 'lavfi.silence_start':
+        long_df.loc[long_df.index.max()+1,'Name'] = 'lavfi.silence_end'
+        long_df.loc[long_df.index.max(),'Value'] = 99999
+        long_df.loc[long_df.index.max()+1,'Name'] = 'lavfi.silence_duration'
+        long_df.loc[long_df.index.max(),'Value'] = 99999
+    long_df.reset_index(inplace=True)
+    long_df['quasi_id']=long_df.index/3
+    long_df['quasi_id'] = long_df['quasi_id'].floordiv(1)
+    long_df = long_df.drop('index', axis=1).set_index('quasi_id').pivot(columns='Name',values='Value')
+
+    long_df_j = pd.merge(long_df,long_df.set_index(long_df.index-1),how='left',left_index=True,right_index=True)
+    long_df_j['gap'] = long_df_j['lavfi.silence_start_y']-long_df_j['lavfi.silence_end_x']
+
+    i = 0
+    for gr in long_df.index:
+        long_df.loc[gr,'gg'] = i
+        if long_df_j.loc[gr,'gap'] > tuning_min_gap:
+            i +=1
+    long_df_agg0 = pd.merge(long_df[['gg','lavfi.silence_duration']].groupby('gg').sum(),long_df[['gg','lavfi.silence_start']].groupby('gg').min(), how='inner', left_on='gg', right_on='gg')
+    long_df_agg1 = pd.merge(long_df_agg0,long_df[['gg','lavfi.silence_end']].groupby('gg').max(), how='inner', left_on='gg', right_on='gg')
+
+    long_df_agg1['call'] = wav
+
+    long_df_agg1['sil_driver'] = long_df_agg1['lavfi.silence_start'] - driver_detect_sil
+    long_df_agg1['sil_res'] = long_df_agg1['lavfi.silence_end'] + res_detect_sil
+
+    # Snip Files
+    #s = 0
+    os.system(r'cmd /c ffmpeg -i {} -ss 0s -t {}s -y -async 1 -strict -2 ..\\allC-Drivers-Snips\\{}_cdriver.wav'.format(wav, driver_detect_call,wav[:-4]))
+    for dum in long_df_agg1.index:
+        os.system(r'cmd /c ffmpeg -i {} -ss {}s -t {}s -y -async 1 -strict -2 ..\\allSilence-Snips\\{}_d{}.wav'.format(wav, long_df_agg1.loc[dum,'sil_driver'],driver_detect_sil,wav[:-4],long_df_agg1.loc[dum,'lavfi.silence_start']))
+        os.system(r'cmd /c ffmpeg -i {} -ss {}s -t {}s -y -async 1 -strict -2 ..\\allSilence-Snips\\{}_r{}.wav'.format(wav, long_df_agg1.loc[dum,'lavfi.silence_end'],res_detect_sil,wav[:-4],long_df_agg1.loc[dum,'lavfi.silence_start']))
+    #    s+=1
+    dd = pd.concat([dd,long_df_agg1], axis=0)
+    
+    c+=1
+dd.reset_index(inplace=True, drop=True)
+dd['lavfi.silence_duration'] = dd['lavfi.silence_duration'].div(60)
+dd.groupby('call')['lavfi.silence_duration'].describe()
 #%% Dash
 from dash import Dash, html, dcc
 import plotly.express as px
 app = Dash(__name__)
 
-fig = px.bar(long5_sv_df, y="totalDurationMinutes", x="file_name", barmode="group")
+fig = px.bar(df, y="totalDurationMinutes", x="day", barmode="group")
 
 app.layout = html.Div(children=[
     html.H1(children='Icebreaker Dashboard'),
@@ -224,65 +285,43 @@ app.layout = html.Div(children=[
 
 if __name__ == '__main__':
     app.run_server()
-# %% Read
-#Silence Params
-# tuning_noise = -10
-# tuning_min_silence = 120
-# tuning_min_gap = 30
-# #Snip Params
-# driver_detect_call = 300
-# driver_detect_sil = 45
-# res_detect_sil = 45
+# %%Dash v2
+from dash import Dash, dcc, html, Input, Output
+import plotly.express as px
 
-# #new_long_wavs = [wav for wav in os.listdir() if (wav[:3]=='wk' + str(df['wk'].max())) & (wav[-3:] == 'wav')]
-# new_long_wavs = [wav for wav in os.listdir() if (wav[:3]=='wk6') & (wav[-3:] == 'wav')] #script-test
-# new_long_txt = [txt[:-4]+'.txt' for txt in new_long_wavs]
-#%% 
-# c = 0
-# dd = pd.DataFrame()
-# for dumwav in new_long_wavs:
-#     wav = new_long_wavs[c]
-#     #os.system(r'cmd /c ffmpeg -i ' + new_long_wavs[c] + r' -af silencedetect=noise=' + str(tuning_noise) + r'dB:duration=' + str(tuning_min_silence) + r',ametadata=print:file=' + new_long_txt[c] + r' -f null -')
-#     os.system(r'cmd /c ffmpeg -i {} -af silencedetect=noise={}dB:duration={},ametadata=print:file={} -f null -'.format(wav, tuning_noise,tuning_min_silence,new_long_txt[c]))
-#     long_df = pd.read_csv(new_long_txt[c], delimiter = '=', names = ['Name','Value'])
-#     long_df = long_df[long_df['Value']>0]
-#     if long_df.loc[long_df.index.max(),'Name'] == 'lavfi.silence_start':
-#         long_df.loc[long_df.index.max()+1,'Name'] = 'lavfi.silence_end'
-#         long_df.loc[long_df.index.max(),'Value'] = 99999
-#         long_df.loc[long_df.index.max()+1,'Name'] = 'lavfi.silence_duration'
-#         long_df.loc[long_df.index.max(),'Value'] = 99999
-#     long_df.reset_index(inplace=True)
-#     long_df['quasi_id']=long_df.index/3
-#     long_df['quasi_id'] = long_df['quasi_id'].floordiv(1)
-#     long_df = long_df.drop('index', axis=1).set_index('quasi_id').pivot(columns='Name',values='Value')
+import pandas as pd
 
-#     long_df_j = pd.merge(long_df,long_df.set_index(long_df.index-1),how='left',left_index=True,right_index=True)
-#     long_df_j['gap'] = long_df_j['lavfi.silence_start_y']-long_df_j['lavfi.silence_end_x']
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv')
 
-#     i = 0
-#     for gr in long_df.index:
-#         long_df.loc[gr,'gg'] = i
-#         if long_df_j.loc[gr,'gap'] > tuning_min_gap:
-#             i +=1
-#     long_df_agg0 = pd.merge(long_df[['gg','lavfi.silence_duration']].groupby('gg').sum(),long_df[['gg','lavfi.silence_start']].groupby('gg').min(), how='inner', left_on='gg', right_on='gg')
-#     long_df_agg1 = pd.merge(long_df_agg0,long_df[['gg','lavfi.silence_end']].groupby('gg').max(), how='inner', left_on='gg', right_on='gg')
+app = Dash(__name__)
 
-#     long_df_agg1['call'] = wav
+app.layout = html.Div([
+    dcc.Graph(id='graph-with-slider'),
+    dcc.Slider(
+        df['year'].min(),
+        df['year'].max(),
+        step=None,
+        value=df['year'].min(),
+        marks={str(year): str(year) for year in df['year'].unique()},
+        id='year-slider'
+    )
+])
 
-#     long_df_agg1['sil_driver'] = long_df_agg1['lavfi.silence_start'] - driver_detect_sil
-#     long_df_agg1['sil_res'] = long_df_agg1['lavfi.silence_end'] + res_detect_sil
 
-#     # Snip Files
-#     #s = 0
-#     os.system(r'cmd /c ffmpeg -i {} -ss 0s -t {}s -y -async 1 -strict -2 ..\\allC-Drivers-Snips\\{}_cdriver.wav'.format(wav, driver_detect_call,wav[:-4]))
-#     for dum in long_df_agg1.index:
-#         os.system(r'cmd /c ffmpeg -i {} -ss {}s -t {}s -y -async 1 -strict -2 ..\\allSilence-Snips\\{}_d{}.wav'.format(wav, long_df_agg1.loc[dum,'sil_driver'],driver_detect_sil,wav[:-4],long_df_agg1.loc[dum,'lavfi.silence_start']))
-#         os.system(r'cmd /c ffmpeg -i {} -ss {}s -t {}s -y -async 1 -strict -2 ..\\allSilence-Snips\\{}_r{}.wav'.format(wav, long_df_agg1.loc[dum,'lavfi.silence_end'],res_detect_sil,wav[:-4],long_df_agg1.loc[dum,'lavfi.silence_start']))
-#     #    s+=1
-#     dd = pd.concat([dd,long_df_agg1], axis=0)
-    
-#     c+=1
-# dd.reset_index(inplace=True, drop=True)
-# dd['lavfi.silence_duration'] = dd['lavfi.silence_duration'].div(60)
-# dd.groupby('call')['lavfi.silence_duration'].describe()
-# %%
+@app.callback(
+    Output('graph-with-slider', 'figure'),
+    Input('year-slider', 'value'))
+def update_figure(selected_year):
+    filtered_df = df[df.year == selected_year]
+
+    fig = px.scatter(filtered_df, x="gdpPercap", y="lifeExp",
+                     size="pop", color="continent", hover_name="country",
+                     log_x=True, size_max=55)
+
+    fig.update_layout(transition_duration=500)
+
+    return fig
+
+
+if __name__ == '__main__':
+    app.run_server()
