@@ -39,8 +39,7 @@ import base64
 import datetime as DT
 import pandas as pd
 import os
-from dash import Dash, html, dcc
-import plotly.express as px
+import numpy as np
 #%% Change Working Directory
 os.chdir('C:\\Users\\{}\\Sunpower Corporation\\ATSE.US - Documents\\Icebreaker\\v4_All-in-One'.format(os.getlogin()))
 #os.chdir('.\\rawLogs_DeleteAfter2weeks\\')
@@ -99,7 +98,6 @@ while i+1<len(week0):
     i+=1
 # %% Pull Data
 # Programmatic Dates & cycle Through Skills
-#Need these?
 ct = 0
 c = []
 #
@@ -130,41 +128,51 @@ for skill in skills:
                 print('{}: {} - {}'.format(skill,query_contacts['startDate'],query_contacts['endDate']))
 
             
+#%% result all audio files
+    # i = 0
+    # k = 0
+    # for i in result:
+    #     for k in i:
+    #         # if (result[i][k]['contactId']):
+    #         print(result[i][k]["contactId"])
+    # # for i in result[0][0]:
+         
 #%% result
 con = []
 for res in result:
     for cc in res:
         con.append(cc)
 df = pd.DataFrame.from_records(con, columns=list(cc.keys()))
-df['totalDurationSeconds'] = pd.to_numeric(df['totalDurationSeconds'], errors='coerce')
+df['totalDurationSeconds']=df['totalDurationSeconds'].replace(',', '', regex=True).astype(float)
+df['totalDurationSeconds'] = pd.to_numeric(df['totalDurationSeconds'], errors='raise')
 for x in df.index:
     df.loc[x,'aCode'] = df.loc[x,'fromAddr'][-10:][:3]
-    if df.loc[x,'totalDurationSeconds']<30: # Must be > 30sec to count as Valid Call
+    if df.loc[x, 'totalDurationSeconds']<30: # Must be > 30sec to count as Valid Call
         df.drop(x, inplace=True)
     else:
         df.loc[x,'totalDurationSeconds']=df.loc[x,'totalDurationSeconds']/60.0
 
-df['LongTF']=df['totalDurationSeconds']>=120
+df.rename(columns={'totalDurationSeconds':'totalDurationMinutes'}, inplace=True)
+df['LongTF']=df['totalDurationMinutes']>=120
 df['contactStart']=pd.to_datetime(df['contactStart'])
 df.set_index('contactStart', inplace=True)
 df['wk'] = df.index.isocalendar().week
 df['day'] = df.index.isocalendar().day
 df['hour'] = df.index.hour
 
-df['aCode']=pd.to_numeric(df['aCode'])
-df.rename(columns={'totalDurationSeconds':'totalDurationMinutes'}, inplace=True)
+# df['aCode']=pd.to_numeric(df['aCode'])
 #df.to_csv('test1.csv', index=False)
 #%% Analyze
-df_desc_stats = df.groupby(['skillName', 'wk','LongTF'])['totalDurationMinutes'].describe()
+df_desc_stats = df.groupby(['skillName', 'wk', 'LongTF'])['totalDurationMinutes'].describe()
 print(df_desc_stats)
 #df_desc_stats.to_csv('T10Tech_stats_Week'+str(df['wk'].max())+'.csv')
 #%% Little Bit of Charting
-for sk in df['skillName'].drop_duplicates():
-    df[["skillName","wk","totalDurationMinutes"]][df['skillName']==sk].pivot(columns='wk',values='totalDurationMinutes').plot.box(xlabel="2022 Work Week",ylabel="Duration (Min)", title= "{}: All Calls".format(sk))
-    df[["skillName","wk","totalDurationMinutes"]][df['skillName']==sk].pivot(columns='wk',values='totalDurationMinutes').plot.hist(alpha=0.5,rwidth=0.75,xlabel="2022 Work Week",ylabel="Duration (Min)", title= "{}: All Calls".format(sk))
-#
-    if df[["skillName","LongTF","wk","totalDurationMinutes"]][(df['skillName']==sk) & (df['LongTF']==True)].size > 0:
-        df[["skillName","LongTF","wk","totalDurationMinutes"]][(df['skillName']==sk) & (df['LongTF']==True)].pivot(columns='wk',values='totalDurationMinutes').plot.hist(alpha=0.5,rwidth=0.75,xlabel="2022 Work Week",ylabel="Duration (Min)", title= "{}: Long Calls".format(sk))
+# for sk in df['skillName'].drop_duplicates():
+#     df[["skillName","wk","totalDurationMinutes"]][df['skillName']==sk].pivot(columns='wk',values='totalDurationMinutes').plot.box(xlabel="2022 Work Week",ylabel="Duration (Min)", title= "{}: All Calls".format(sk))
+#     df[["skillName","wk","totalDurationMinutes"]][df['skillName']==sk].pivot(columns='wk',values='totalDurationMinutes').plot.hist(alpha=0.5,rwidth=0.75,xlabel="2022 Work Week",ylabel="Duration (Min)", title= "{}: All Calls".format(sk))
+# #
+#     if df[["skillName","LongTF","wk","totalDurationMinutes"]][(df['skillName']==sk) & (df['LongTF']==True)].size > 0:
+#         df[["skillName","LongTF","wk","totalDurationMinutes"]][(df['skillName']==sk) & (df['LongTF']==True)].pivot(columns='wk',values='totalDurationMinutes').plot.hist(alpha=0.5,rwidth=0.75,xlabel="2022 Work Week",ylabel="Duration (Min)", title= "{}: Long Calls".format(sk))
 # %% Longest 5 SV Calls (IDs)
 long5_sv_df = df[['contactId','totalDurationMinutes','wk']][(df['skillName']=='NA Sunvault Tech') & (df['wk']==df['wk'].max())].sort_values(by='totalDurationMinutes', ascending=False).head(5)
 #long5_sv_json = long5_sv_df.to_json(orient='records')
@@ -188,16 +196,18 @@ for index_bin, row_bin in long5_sv_df.iterrows():
     ocal_filename = g.urlread(url=url_cluster + api_nm_bin + '?fileName=' + row_bin['file_url'], http_headers=tuple(head.items()))
     oocal_filename = base64.b64decode(str(ocal_filename).split(':')[2])
 
-    print('Writing #{} ID-{}, {} min long'.format(i+1,row_bin['contactId'], int(row_bin['totalDurationMinutes'])))
+    print('Writing #{} ID-{}, {} minutes long'.format(i+1,row_bin['contactId'], int(row_bin['totalDurationMinutes'])))
 
     with open('wk{}_{}_{}min_{}.wav'.format(row_bin['wk'],i,int(row_bin['totalDurationMinutes']),row_bin['contactId']), 'wb') as f:
         f.write(oocal_filename)
     i += 1
 # HERE WE GO!
 #%% Dash
+from dash import Dash, html, dcc
+import plotly.express as px
 app = Dash(__name__)
 
-fig = px.bar(long5_sv_df, x="totalDurationMinutes", y="contactId", barmode="group")
+fig = px.bar(long5_sv_df, y="totalDurationMinutes", x="file_name", barmode="group")
 
 app.layout = html.Div(children=[
     html.H1(children='Icebreaker Dashboard'),
