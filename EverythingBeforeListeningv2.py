@@ -291,7 +291,7 @@ import plotly.express as px
 
 import pandas as pd
 
-df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv')
+df = pd.read_excel('https://github.com/daniyarsunpower/icebreaker/blob/master/Icebreaker_stats_final.xlsx')
 
 app = Dash(__name__)
 
@@ -325,3 +325,5 @@ def update_figure(selected_year):
 
 if __name__ == '__main__':
     app.run_server()
+
+# %%
