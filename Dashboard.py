@@ -2,7 +2,10 @@
 from dash import Dash, dcc, html, Input, Output
 import plotly.express as px
 import pandas as pd
+import os
+
 app = Dash(__name__)
+server = app.server
 
 df1 = pd.read_csv('https://raw.githubusercontent.com/daniyar135/icebreaker/master/Icebreaker_stats_final.csv')
 #fig = px.box(df, y="totalDurationMinutes", x="day")
