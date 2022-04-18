@@ -1,5 +1,6 @@
 dash
-requests
+django
+gunicorn
+django-heroku
 pandas
 plotly
-urlgrabber

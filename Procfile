@@ -1,1 +1,1 @@
-web: gunicorn EverythingBeforeListeningv2:app --log-file -
+web: gunicorn Dashboard:app --log-file -
