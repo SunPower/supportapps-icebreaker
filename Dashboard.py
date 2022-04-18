@@ -4,7 +4,7 @@ import plotly.express as px
 import pandas as pd
 app = Dash(__name__)
 
-df1 = pd.read_csv(r'C:/Users/dsadykhanov/OneDrive - Sunpower Corporation\Documents/Icebreaker/Icebreaker/Icebreaker_stats_final.csv')
+df1 = pd.read_csv('https://raw.githubusercontent.com/daniyar135/icebreaker/master/Icebreaker_stats_final.csv')
 #fig = px.box(df, y="totalDurationMinutes", x="day")
 
 app.layout = html.Div(children=[
