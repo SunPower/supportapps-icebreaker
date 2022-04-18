@@ -1,0 +1,4 @@
+Dashboard
+*.pyc
+.DS_Store
+.env

@@ -1,6 +1,0 @@
-dash
-django
-gunicorn
-django-heroku
-pandas
-plotly
