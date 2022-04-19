@@ -33,7 +33,7 @@ app.layout = html.Div(children=[
 def update_figure(selected_week):
     filtered_df = df1[df1.week == selected_week]
 
-    fig = px.scatter(filtered_df, x="silencecount", y="callduration",
+    fig = px.scatter(filtered_df, x="silencecount", y="callduration", color="Recording ID",
                      log_x=True, size_max=55)
 
     fig.update_layout(transition_duration=500)
