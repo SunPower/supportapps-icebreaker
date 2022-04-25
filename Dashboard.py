@@ -10,10 +10,10 @@ df3 = pd.read_csv('https://raw.githubusercontent.com/daniyar135/icebreaker/maste
 
 app = Dash(__name__)
 server = app.server
-fig2 = px.scatter(df1, y="Call duration", x="Number of silences", color="Recording ID", size="Silence Max")
-fig3 = px.bar(df3, y="Silence duration", x="Recording ID")
-fig4 = px.bar(df3, y="Class", x="Recording ID")
-fig5 = px.bar(df2, y="Call Duration", x="Contact ID")
+figa = px.scatter(df1, y="Call duration", x="Number of silences", color="Recording ID", size="Silence Max")
+figs = px.bar(df3, y="Silence duration", x="Recording ID")
+figb = px.bar(df3, y="Recording ID", x="Class")
+figsv = px.histogram(df2, y="Contact ID", x="Call Duration")
 
 app.layout = html.Div(children=[
     html.H1(children='Icebreaker Dashboard'),
@@ -44,30 +44,32 @@ app.layout = html.Div(children=[
     html.Div([
     dcc.Graph(
     id='silence-graph',
-    figure=fig3
+    figure=figs
     ),
 
     dcc.Graph(
     id='blocker-graph',
-    figure=fig4
+    figure=figb,
     ),
 
     ], style={'display': 'inline-block', 'width': '49%'}),
 
     dcc.Graph(
-    id='graph-with-slider2',
-    figure=fig2
+    id='alltime-graph',
+    figure=figa
     ),
 
     dcc.Graph(
-    id='alltime-graph',
-    figure=fig5
+    id='sv-graph',
+    figure=figsv
     )
 
 ])
 
 @app.callback(
     Output('graph-with-slider', 'figure'),
+    Output('blocker-graph', 'figure'),
+    Output('silence-graph', 'figure'),
     Input('week-slider', 'value'))
 
 def update_figure(selected_week):
@@ -75,10 +77,19 @@ def update_figure(selected_week):
 
     fig = px.scatter(filtered_df, x="Number of silences", y="Call duration", size="Call duration", color="Recording ID",
                      log_x=True, size_max=55)
-
     fig.update_layout(transition_duration=500)
 
-    return fig
+    filtered_df3 = df3[df3.week == selected_week]
+
+    fig1 = px.bar(filtered_df3, y="Silence duration", x="Recording ID")
+    fig1.update_layout(transition_duration=500)
+
+    fig2 = px.bar(filtered_df3, y="Recording ID", x="Class")
+    fig2.update_layout(transition_duration=500)
+
+    return fig, fig1, fig2
 
 if __name__ == '__main__':
     app.run_server()
+
+# %%
