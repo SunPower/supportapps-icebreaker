@@ -14,8 +14,8 @@ server = app.server
 figa = px.scatter(df1, y="Call duration", x="Number of silences", color="Contact ID", size="Silence Max")
 figs = px.bar(df2, y="Silence duration (seconds)", x="Contact ID")
 figb = px.bar(df2, y="Contact ID", x="Class", color="Subclass")
-figsv = px.bar(df3, y="callduration", x="Date")
-figtop = px.bar(df4, y="callduration", x="Contact Start Date Time", color="Skill Name")
+figsv = px.bar(df3, y="callduration", x="week")
+figtop = px.bar(df4, y="callduration", x="skillname", color="skillname")
 
 app.layout = html.Div(children=[
     html.H1(children='Icebreaker Dashboard'),
@@ -156,7 +156,7 @@ def update_figure(selected_week):
 def update_figure2(selected_duration):
 
     filtered_df3 = df3[df3.callduration >= selected_duration]
-    fig3 = px.bar(filtered_df3, y="callduration", x="Date")
+    fig3 = px.bar(filtered_df3, y="callduration", x="week")
     fig3.update_layout(transition_duration=500)
     return fig3
 
@@ -167,7 +167,7 @@ def update_figure2(selected_duration):
 def update_figure3(selected_duration):
 
     filtered_df4 = df4[df4.callduration >= selected_duration]
-    fig4 = px.bar(filtered_df4, y="callduration", x="Contact Start Date Time", color="Skill Name")
+    fig4 = px.bar(filtered_df4, y="callduration", x="skillname", color="skillname")
     fig4.update_layout(transition_duration=500)
     return fig4
 
