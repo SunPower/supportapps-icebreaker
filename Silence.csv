@@ -1,246 +1,325 @@
-﻿week,Contact ID,Silence duration (seconds),Class,Subclass
-1,wk1_194788919454,427,Request,Photos
-1,wk1_194788919454,466,Request,Photos
-1,wk1_194874479851,165,Request,Screenshots
-1,wk1_194874479851,198,Analysis,Batteries
-1,wk1_194874479851,418,Action,Firmware
-1,wk1_194875469528,151,Complaint,Process
-1,wk1_194875469528,194,Analysis,Team
-1,wk1_194921699757,135,Request,Screenshots
-1,wk1_194921699757,129,Question,Power status
-1,wk1_194921699757,400,Request,Restart
-1,wk1_194921699757,375,Action,Firmware
-1,wk1_194921699757,124,Request,Photos
-1,wk1_194921699757,268,Analysis,Screenshots
-1,wk1_194921699757,154,Request,Batteries
-1,wk1_194922431333,285,Request,Photos
-2,wk2_195080643105,179,Request,Power status
-2,wk2_195080643105,233,Analysis,Team
-2,wk2_195119994188,207,Analysis,Batteries
-2,wk2_195119994188,225,Action,Error
-2,wk2_195121467932,159,Analysis,Batteries
-2,wk2_195121467932,170,Analysis,Screenshots
-2,wk2_195121467932,228,Analysis,Team
-2,wk2_195121467932,255,Request,Photos
-2,wk2_195121467932,305,Analysis,Batteries
-2,wk2_195121467932,324,Request,RMA
-2,wk2_195121467932,357,Request,RMA
-2,wk2_195121467932,361,Action,Error
-2,wk2_195121467932,393,Analysis,Batteries
-2,wk2_195121467932,402,Complaint,Process
-2,wk2_195121467932,413,Request,Photos
-2,wk2_195121467932,774,Question,Cable test
-3,wk3_195457409780,184,Question,MIDC
-3,wk3_195457409780,146,Action,Error
-3,wk3_195457409780,159,Request,Restart
-3,wk3_195457409780,189,Request,Photos
-3,wk3_195457409780,167,Request,Photos
-3,wk3_195457409780,203,Request,Photos
-3,wk3_195457437624,380,Request,Break
-3,wk3_195457437624,229,Request,Break
-3,wk3_195457437624,133,Analysis,Batteries
-3,wk3_195457437624,473,Request,Photos
-3,wk3_195457437624,130,Question,Wi-Fi
-4,wk4_195597016190,138,Request,Photos
-4,wk4_195597016190,151,Request,Photos
-4,wk4_195597016190,182,Request,Screenshots
-4,wk4_195597016190,121,Admin,Firmware
-4,wk4_195597016190,164,Complaint,Process
-4,wk4_195646136045,459,Request,Photos
-4,wk4_195646136045,913,Action,Restart
-4,wk4_195722195767,249,Action,Restart
-4,wk4_195722195767,276,Analysis,Batteries
-4,wk4_195722195767,220,Analysis,Batteries
-4,wk4_195722195767,271,Request,Screenshots
-4,wk4_195722195767,145,Action,Firmware
-4,wk4_195722195767,646,Request,Photos
-4,wk4_195722195767,687,Request,Photos
-4,wk4_195722195767,185,Action,Restart
-4,wk4_195722195767,160,Analysis,Batteries
-4,wk4_195722195767,481,Request,Restart
-4,wk4_195722195767,214,Analysis,Connection
-4,wk4_195755759126,181,Action,Error
-4,wk4_195755759126,228,Request,Photos
-5,wk5_195929424109,344,Admin,Case
-5,wk5_195929424109,149,Request,Photos
-5,wk5_195929424109,121,Request,Photos
-5,wk5_195929424109,778,Analysis,Team
-5,wk5_195929424109,125,Analysis,Team
-5,wk5_196046567703,553,Analysis,Photos
-5,wk5_196046567703,249,Question,Power status
-5,wk5_196046567703,155,Request,Screenshots
-5,wk5_196046567703,320,Analysis,Team
-5,wk5_196046567703,190,Question,Power status
-5,wk5_196046567703,152,Request,Photos
-5,wk5_196046567703,444,Complaint,Process
-5,wk5_196046567703,174,Analysis,Photos
-5,wk5_196046888983,128,Analysis,Photos
-5,wk5_196046888983,155,Request,Restart
-5,wk5_196046888983,162,Request,Screenshots
-5,wk5_196046888983,124,Analysis,Screenshots
-5,wk5_196046888983,179,Question,Spares
-5,wk5_196046888983,205,Request,Photos
-5,wk5_196046888983,302,Analysis,Photos
-5,wk5_196046888983,158,Analysis,Team
-5,wk5_196046888983,130,Action,Restart
-5,wk5_196095807786,170,Action,Firmware
-5,wk5_196095807786,191,Analysis,Connection
-5,wk5_196095807786,212,Analysis,Team
-5,wk5_196095892036,422,Request,Screenshots
-5,wk5_196095892036,133,Request,Photos
-5,wk5_196095892036,247,Request,Photos
-5,wk5_196095892036,165,Analysis,Connection
-5,wk5_196095892036,222,Analysis,Batteries
-6,wk6_196241832346,166,Admin,Case
-6,wk6_196241832346,186,Request,Photos
-6,wk6_196289568396,161,Action,Error
-6,wk6_196289568396,294,Action,Firmware
-6,wk6_196289568396,158,Action,Restart
-6,wk6_196289568396,327,Action,MIs
-6,wk6_196289568396,127,Action,MIs
-6,wk6_196289568396,128,Action,MIs
-6,wk6_196289568396,185,Action,MIs
-6,wk6_196289568396,218,Action,MIs
-6,wk6_196289568396,138,Request,Restart
-6,wk6_196289568396,333,Action,Firmware
-6,wk6_196289568396,227,Analysis,Connection
-6,wk6_196289568396,197,Request,Screenshots
-6,wk6_196289965246,143,Admin,Case
-6,wk6_196289965246,157,Request,Photos
-6,wk6_196289965246,211,Request,Photos
-6,wk6_196357002595,312,Action,Restart
-6,wk6_196357002595,212,Action,Restart
-6,wk6_196290241995,160,Action,Restart
-6,wk6_196290241995,135,Analysis,Batteries
-6,wk6_196290241995,129,Analysis,Batteries
-7,wk7_196459287606,195,Request,Break
-7,wk7_196459287606,432,Action,Firmware
-7,wk7_196459287606,130,Request,Break
-7,wk7_196459287606,208,Action,Firmware
-7,wk7_196459287606,158,Question,Last visit
-7,wk7_196564297869,245,Request,Photos
-7,wk7_196564297869,187,Request,Photos
-7,wk7_196564297869,249,Request,Screenshots
-7,wk7_196564297869,190,Request,Photos
-7,wk7_196564297869,186,Request,Screenshots
-7,wk7_196564394141,202,Question,LED lights
-7,wk7_196564394141,288,Request,Photos
-7,wk7_196564394141,188,Action,MIs
-7,wk7_196564394141,182,Analysis,Photos
-7,wk7_196564394141,198,Action,MIs
-7,wk7_196625952097,150,Analysis,Team
-7,wk7_196625952097,243,Question,Cable test
-7,wk7_196625952097,207,Question,Hub+ wiring
-7,wk7_196625952097,156,Request,Photos
-7,wk7_196626081008,267,Analysis,Team
-7,wk7_196626081008,172,Question,Pro Connect ver.
-7,wk7_196626081008,155,Request,Screenshots
-7,wk7_196626081008,193,Action,Charge phone
-7,wk7_196626081008,498,Analysis,Team
-8,wk8_196821506301,236,Request,Screenshots
-8,wk8_196821506301,399,Action,Restart
-8,wk8_196821506301,436,Question,RPO switch
-8,wk8_196821506301,362,Request,Photos
-8,wk8_196821506301,285,Question,MIO location
-8,wk8_196867933873,126,Request,Restart
-8,wk8_196867933873,333,Request,Screenshots
-8,wk8_196867933873,122,Request,Cable test
-8,wk8_196867933873,165,Complaint,Process
-8,wk8_196867933873,344,Request,Photos
-8,wk8_196715170715,144,Analysis,Team
-8,wk8_196715170715,176,Question,LED lights
-8,wk8_196715551871,150,Question,Pro Connect ver.
-8,wk8_196715551871,193,Question,PTO status
-8,wk8_196715551871,205,Question,Wi-Fi
-8,wk8_196715551871,266,Analysis,Error
-8,wk8_196715551871,213,Complaint,Process
-9,wk9_197048675746,181,Action,Error
-9,wk9_197048675746,225,Action,Error
-9,wk9_197048675746,225,Request,Screenshots
-9,wk9_197048675746,342,Request,Restart
-9,wk9_197048675746,191,Question,Power status
-9,wk9_197048675746,137,Action,Charge phone
-9,wk9_197048675746,176,Analysis,MIDC Error
-9,wk9_197212298037,263,Request,Photos
-9,wk9_197212298037,138,Complaint,Process
-9,wk9_197212298037,283,Request,Photos
-9,wk9_197212298037,240,Request,Cable test
-9,wk9_197212298037,127,Action,Email
-9,wk9_197212298037,150,Request,Photos
-9,wk9_197212298037,977,Admin,Case
-9,wk9_197212298037,187,Request,Screenshots
-9,wk9_197212298037,870,Action,Connecting to PVS6
-9,wk9_197025898522,126,Complaint,Process
-9,wk9_197048938090,246,Analysis,Photos
-9,wk9_197048938090,157,Request,Photos
-10,wk10_197342277387,158,Analysis,Team
-10,wk10_197391322961,130,Question,LED lights
-10,wk10_197391322961,138,Request,Screenshots
-10,wk10_197392091955,161,Question,Last visit
-10,wk10_197497314591,379,Request,Restart
-10,wk10_197497314591,213,Request,Screenshots
-11,wk11_197588662716,135,Request,Screenshots
-11,wk11_197731731753,155,Action,Power status
-11,wk11_197731731753,124,Request,Photos
-13,wk13_198334698021,143,Question,LED lights
-13,wk13_198452634852,228,Analysis,Photos
-13,wk13_198452634852,189,Request,Screenshots
-13,wk13_198453461021,238,Request,Photos
-13,wk13_198453461021,740,Complaint,Process
-14,wk14_198451997615,314,Analysis,Photos
-14,wk14_198451997615,184,Request,Photos
-14,wk14_198451997615,165,Analysis,Photos
-14,wk14_198451997615,272,Request,Photos
-14,wk14_198451997615,2612,Request,Screenshots
-14,wk14_198472052286,139,Request,Restart
-14,wk14_198472052286,128,Request,Photos
-14,wk14_198472052286,217,Request,Photos
-14,wk14_198472052286,231,Request,Screenshots
-14,wk14_198580278943,394,Analysis,Batteries
-14,wk14_198580278943,182,Question,LED lights
-14,wk14_198516559526,382,Request,Photos
-14,wk14_198516559526,387,Request,Photos
-15,wk15_198693526648,271,Request,Restart
-15,wk15_198693526648,214,Question,Power status
-15,wk15_198693526648,132,Question,Spares
-15,wk15_198693526648,271,Question,Power status
-15,wk15_198693526648,426,Request,Screenshots
-15,wk15_198693526648,351,Request,Screenshots
-15,wk15_198693526648,135,Request,Photos
-15,wk15_198694203965,429,Question,Spares
-15,wk15_198822648244,148,Question,MIO location
-15,wk15_198822648244,151,Request,Photos
-15,wk15_198890654295,244,Request,Photos
-15,wk15_198891103301,133,Request,Photos
-15,wk15_198891103301,305,Request,Photos
-15,wk15_198891103301,384,Question,Wi-Fi
-15,wk15_198891103301,151,Analysis,Team
-15,wk15_198891103301,153,Question,Consumption CTs
-15,wk15_198891103301,1179,Action,Zoom
-15,wk15_198891103301,230,Request,Photos
-16,wk16_198946823205,161,Analysis,Screenshots
-16,wk16_198946823205,149,Request,Photos
-16,wk16_198946823205,138,Analysis,Batteries
-16,wk16_198946823205,126,Request,Screenshots
-16,wk16_199055484652,250,Question,Consumption CTs
-16,wk16_199055484652,269,Action,Firmware
-16,wk16_199055484652,150,Question,LED lights
-16,wk16_199055484652,186,Request,Restart
-16,wk16_199055484652,164,Question,Spares
-16,wk16_199056433244,121,Request,Restart
-16,wk16_199056433244,557,Request,Break
-16,wk16_199056433244,160,Request,Photos
-16,wk16_199056433244,207,Action,Email
-16,wk16_199056478046,145,Request,Restart
-16,wk16_199056478046,253,Question,Wi-Fi
-16,wk16_199056478046,137,Analysis,Photos
-16,wk16_199186650291,390,Analysis,Photos
-16,wk16_199186650291,258,Request,Screenshots
-16,wk16_199186650291,249,Request,Photos
-16,wk16_199186650291,281,Request,Screenshots
-16,wk16_199186650291,286,Request,Photos
-17,wk17_199442884152,219,Analysis,Team
-17,wk17_199442884152,192,Request,Removal
-17,wk17_199442884152,273,Question,Power status
-17,wk17_199442884152,135,Request,Restart
-17,wk17_199442884152,177,Request,Screenshots
+﻿week,Contact ID,Silence duration (seconds),Class,Subclass,
+1,wk1_194788919454,427,Request,Photos,
+1,wk1_194788919454,466,Request,Photos,
+1,wk1_194874479851,165,Request,Screenshots,
+1,wk1_194874479851,198,Analysis,Batteries,
+1,wk1_194874479851,418,Action,Firmware,
+1,wk1_194875469528,151,Complaint,Process,
+1,wk1_194875469528,194,Analysis,Team,
+1,wk1_194921699757,135,Request,Screenshots,
+1,wk1_194921699757,129,Question,Power status,
+1,wk1_194921699757,400,Request,Restart,
+1,wk1_194921699757,375,Action,Firmware,
+1,wk1_194921699757,124,Request,Photos,
+1,wk1_194921699757,268,Analysis,Screenshots,
+1,wk1_194921699757,154,Request,Batteries,
+1,wk1_194922431333,285,Request,Photos,
+2,wk2_195080643105,179,Request,Power status,
+2,wk2_195080643105,233,Analysis,Team,
+2,wk2_195119994188,207,Analysis,Batteries,
+2,wk2_195119994188,225,Action,Error,
+2,wk2_195121467932,159,Analysis,Batteries,
+2,wk2_195121467932,170,Analysis,Screenshots,
+2,wk2_195121467932,228,Analysis,Team,
+2,wk2_195121467932,255,Request,Photos,
+2,wk2_195121467932,305,Analysis,Batteries,
+2,wk2_195121467932,324,Request,RMA,
+2,wk2_195121467932,357,Request,RMA,
+2,wk2_195121467932,361,Action,Error,
+2,wk2_195121467932,393,Analysis,Batteries,
+2,wk2_195121467932,402,Complaint,Process,
+2,wk2_195121467932,413,Request,Photos,
+2,wk2_195121467932,774,Question,Cable test,
+3,wk3_195457409780,184,Question,MIDC,
+3,wk3_195457409780,146,Action,Error,
+3,wk3_195457409780,159,Request,Restart,
+3,wk3_195457409780,189,Request,Photos,
+3,wk3_195457409780,167,Request,Photos,
+3,wk3_195457409780,203,Request,Photos,
+3,wk3_195457437624,380,Request,Break,
+3,wk3_195457437624,229,Request,Break,
+3,wk3_195457437624,133,Analysis,Batteries,
+3,wk3_195457437624,473,Request,Photos,
+3,wk3_195457437624,130,Question,Wi-Fi,
+4,wk4_195597016190,138,Request,Photos,
+4,wk4_195597016190,151,Request,Photos,
+4,wk4_195597016190,182,Request,Screenshots,
+4,wk4_195597016190,121,Admin,Firmware,
+4,wk4_195597016190,164,Complaint,Process,
+4,wk4_195646136045,459,Request,Photos,
+4,wk4_195646136045,913,Action,Restart,
+4,wk4_195722195767,249,Action,Restart,
+4,wk4_195722195767,276,Analysis,Batteries,
+4,wk4_195722195767,220,Analysis,Batteries,
+4,wk4_195722195767,271,Request,Screenshots,
+4,wk4_195722195767,145,Action,Firmware,
+4,wk4_195722195767,646,Request,Photos,
+4,wk4_195722195767,687,Request,Photos,
+4,wk4_195722195767,185,Action,Restart,
+4,wk4_195722195767,160,Analysis,Batteries,
+4,wk4_195722195767,481,Request,Restart,
+4,wk4_195722195767,214,Analysis,Connection,
+4,wk4_195755759126,181,Action,Error,
+4,wk4_195755759126,228,Request,Photos,
+5,wk5_195929424109,344,Admin,Case,
+5,wk5_195929424109,149,Request,Photos,
+5,wk5_195929424109,121,Request,Photos,
+5,wk5_195929424109,778,Analysis,Team,
+5,wk5_195929424109,125,Analysis,Team,
+5,wk5_196046567703,553,Analysis,Photos,
+5,wk5_196046567703,249,Question,Power status,
+5,wk5_196046567703,155,Request,Screenshots,
+5,wk5_196046567703,320,Analysis,Team,
+5,wk5_196046567703,190,Question,Power status,
+5,wk5_196046567703,152,Request,Photos,
+5,wk5_196046567703,444,Complaint,Process,
+5,wk5_196046567703,174,Analysis,Photos,
+5,wk5_196046888983,128,Analysis,Photos,
+5,wk5_196046888983,155,Request,Restart,
+5,wk5_196046888983,162,Request,Screenshots,
+5,wk5_196046888983,124,Analysis,Screenshots,
+5,wk5_196046888983,179,Question,Spares,
+5,wk5_196046888983,205,Request,Photos,
+5,wk5_196046888983,302,Analysis,Photos,
+5,wk5_196046888983,158,Analysis,Team,
+5,wk5_196046888983,130,Action,Restart,
+5,wk5_196095807786,170,Action,Firmware,
+5,wk5_196095807786,191,Analysis,Connection,
+5,wk5_196095807786,212,Analysis,Team,
+5,wk5_196095892036,422,Request,Screenshots,
+5,wk5_196095892036,133,Request,Photos,
+5,wk5_196095892036,247,Request,Photos,
+5,wk5_196095892036,165,Analysis,Connection,
+5,wk5_196095892036,222,Analysis,Batteries,
+6,wk6_196241832346,166,Admin,Case,
+6,wk6_196241832346,186,Request,Photos,
+6,wk6_196289568396,161,Action,Error,
+6,wk6_196289568396,294,Action,Firmware,
+6,wk6_196289568396,158,Action,Restart,
+6,wk6_196289568396,327,Action,MIs,
+6,wk6_196289568396,127,Action,MIs,
+6,wk6_196289568396,128,Action,MIs,
+6,wk6_196289568396,185,Action,MIs,
+6,wk6_196289568396,218,Action,MIs,
+6,wk6_196289568396,138,Request,Restart,
+6,wk6_196289568396,333,Action,Firmware,
+6,wk6_196289568396,227,Analysis,Connection,
+6,wk6_196289568396,197,Request,Screenshots,
+6,wk6_196289965246,143,Admin,Case,
+6,wk6_196289965246,157,Request,Photos,
+6,wk6_196289965246,211,Request,Photos,
+6,wk6_196357002595,312,Action,Restart,
+6,wk6_196357002595,212,Action,Restart,
+6,wk6_196290241995,160,Action,Restart,
+6,wk6_196290241995,135,Analysis,Batteries,
+6,wk6_196290241995,129,Analysis,Batteries,
+7,wk7_196459287606,195,Request,Break,
+7,wk7_196459287606,432,Action,Firmware,
+7,wk7_196459287606,130,Request,Break,
+7,wk7_196459287606,208,Action,Firmware,
+7,wk7_196459287606,158,Question,Last visit,
+7,wk7_196564297869,245,Request,Photos,
+7,wk7_196564297869,187,Request,Photos,
+7,wk7_196564297869,249,Request,Screenshots,
+7,wk7_196564297869,190,Request,Photos,
+7,wk7_196564297869,186,Request,Screenshots,
+7,wk7_196564394141,202,Question,LED lights,
+7,wk7_196564394141,288,Request,Photos,
+7,wk7_196564394141,188,Action,MIs,
+7,wk7_196564394141,182,Analysis,Photos,
+7,wk7_196564394141,198,Action,MIs,
+7,wk7_196625952097,150,Analysis,Team,
+7,wk7_196625952097,243,Question,Cable test,
+7,wk7_196625952097,207,Question,Hub+ wiring,
+7,wk7_196625952097,156,Request,Photos,
+7,wk7_196626081008,267,Analysis,Team,
+7,wk7_196626081008,172,Question,Pro Connect ver.,
+7,wk7_196626081008,155,Request,Screenshots,
+7,wk7_196626081008,193,Action,Charge phone,
+7,wk7_196626081008,498,Analysis,Team,
+8,wk8_196821506301,236,Request,Screenshots,
+8,wk8_196821506301,399,Action,Restart,
+8,wk8_196821506301,436,Question,RPO switch,
+8,wk8_196821506301,362,Request,Photos,
+8,wk8_196821506301,285,Question,MIO location,
+8,wk8_196867933873,126,Request,Restart,
+8,wk8_196867933873,333,Request,Screenshots,
+8,wk8_196867933873,122,Request,Cable test,
+8,wk8_196867933873,165,Complaint,Process,
+8,wk8_196867933873,344,Request,Photos,
+8,wk8_196715170715,144,Analysis,Team,
+8,wk8_196715170715,176,Question,LED lights,
+8,wk8_196715551871,150,Question,Pro Connect ver.,
+8,wk8_196715551871,193,Question,PTO status,
+8,wk8_196715551871,205,Question,Wi-Fi,
+8,wk8_196715551871,266,Analysis,Error,
+8,wk8_196715551871,213,Complaint,Process,
+9,wk9_197048675746,181,Action,Error,
+9,wk9_197048675746,225,Action,Error,
+9,wk9_197048675746,225,Request,Screenshots,
+9,wk9_197048675746,342,Request,Restart,
+9,wk9_197048675746,191,Question,Power status,
+9,wk9_197048675746,137,Action,Charge phone,
+9,wk9_197048675746,176,Analysis,MIDC Error,
+9,wk9_197212298037,263,Request,Photos,
+9,wk9_197212298037,138,Complaint,Process,
+9,wk9_197212298037,283,Request,Photos,
+9,wk9_197212298037,240,Request,Cable test,
+9,wk9_197212298037,127,Action,Email,
+9,wk9_197212298037,150,Request,Photos,
+9,wk9_197212298037,977,Admin,Case,
+9,wk9_197212298037,187,Request,Screenshots,
+9,wk9_197212298037,870,Action,Connecting to PVS6,
+9,wk9_197025898522,126,Complaint,Process,
+9,wk9_197048938090,246,Analysis,Photos,
+9,wk9_197048938090,157,Request,Photos,
+10,wk10_197342277387,158,Analysis,Team,
+10,wk10_197391322961,130,Question,LED lights,
+10,wk10_197391322961,138,Request,Screenshots,
+10,wk10_197392091955,161,Question,Last visit,
+10,wk10_197497314591,379,Request,Restart,
+10,wk10_197497314591,213,Request,Screenshots,
+11,wk11_197588662716,135,Request,Screenshots,
+11,wk11_197731731753,155,Action,Power status,
+11,wk11_197731731753,124,Request,Photos,
+13,wk13_198334698021,143,Question,LED lights,
+13,wk13_198452634852,228,Analysis,Photos,
+13,wk13_198452634852,189,Request,Screenshots,
+13,wk13_198453461021,238,Request,Photos,
+13,wk13_198453461021,740,Complaint,Process,
+14,wk14_198451997615,314,Analysis,Photos,
+14,wk14_198451997615,184,Request,Photos,
+14,wk14_198451997615,165,Analysis,Photos,
+14,wk14_198451997615,272,Request,Photos,
+14,wk14_198451997615,2612,Request,Screenshots,
+14,wk14_198472052286,139,Request,Restart,
+14,wk14_198472052286,128,Request,Photos,
+14,wk14_198472052286,217,Request,Photos,
+14,wk14_198472052286,231,Request,Screenshots,
+14,wk14_198580278943,394,Analysis,Batteries,
+14,wk14_198580278943,182,Question,LED lights,
+14,wk14_198516559526,382,Request,Photos,
+14,wk14_198516559526,387,Request,Photos,
+15,wk15_198693526648,271,Request,Restart,
+15,wk15_198693526648,214,Question,Power status,
+15,wk15_198693526648,132,Question,Spares,
+15,wk15_198693526648,271,Question,Power status,
+15,wk15_198693526648,426,Request,Screenshots,
+15,wk15_198693526648,351,Request,Screenshots,
+15,wk15_198693526648,135,Request,Photos,
+15,wk15_198694203965,429,Question,Spares,
+15,wk15_198822648244,148,Question,MIO location,
+15,wk15_198822648244,151,Request,Photos,
+15,wk15_198890654295,244,Request,Photos,
+15,wk15_198891103301,133,Request,Photos,
+15,wk15_198891103301,305,Request,Photos,
+15,wk15_198891103301,384,Question,Wi-Fi,
+15,wk15_198891103301,151,Analysis,Team,
+15,wk15_198891103301,153,Question,Consumption CTs,
+15,wk15_198891103301,1179,Action,Zoom,
+15,wk15_198891103301,230,Request,Photos,
+16,wk16_198946823205,161,Analysis,Screenshots,
+16,wk16_198946823205,149,Request,Photos,
+16,wk16_198946823205,138,Analysis,Batteries,
+16,wk16_198946823205,126,Request,Screenshots,
+16,wk16_199055484652,250,Question,Consumption CTs,
+16,wk16_199055484652,269,Action,Firmware,
+16,wk16_199055484652,150,Question,LED lights,
+16,wk16_199055484652,186,Request,Restart,
+16,wk16_199055484652,164,Question,Spares,
+16,wk16_199056433244,121,Request,Restart,
+16,wk16_199056433244,557,Request,Break,
+16,wk16_199056433244,160,Request,Photos,
+16,wk16_199056433244,207,Action,Email,
+16,wk16_199056478046,145,Request,Restart,
+16,wk16_199056478046,253,Question,Wi-Fi,
+16,wk16_199056478046,137,Analysis,Photos,
+16,wk16_199186650291,390,Analysis,Photos,
+16,wk16_199186650291,258,Request,Screenshots,
+16,wk16_199186650291,249,Request,Photos,
+16,wk16_199186650291,281,Request,Screenshots,
+16,wk16_199186650291,286,Request,Photos,
+17,wk17_199442884152,219,Analysis,Team,
+17,wk17_199442884152,192,Request,Removal,
+17,wk17_199442884152,273,Question,Power status,
+17,wk17_199442884152,135,Request,Restart,
+17,wk17_199442884152,177,Request,Screenshots,
+18,wk18_199609869316,196,Dealer,Complaint,Process
+18,wk18_199609869316,195,Dealer,Complaint,Process
+18,wk18_199609869316,418,TSE,Analysis,Photos
+18,wk18_199609869316,188,TSE,Request,Insert CTs
+18,wk18_199609869316,286,TSE,Request,Moving breaker
+18,wk18_199609934735,295,TSE,Analysis,Photos
+18,wk18_199609934735,340,TSE,Action,Error
+18,wk18_199609934735,182,TSE,Request,Restart
+18,wk18_199609934735,162,TSE,Request,Photos
+18,wk18_199609934735,144,TSE,Request,Screenshots
+18,wk18_199670650210,339,TSE,Request,Firmware
+18,wk18_199670650210,202,TSE,Request,Connect to Wi-Fi
+18,wk18_199670650210,353,TSE,Question,Reinstallation status
+18,wk18_199670650210,161,TSE,Request,Connect to Wi-Fi
+18,wk18_199670650210,165,TSE,Analysis,Error
+18,wk18_199671350818,242,TSE,Action,Recommision
+18,wk18_199671350818,133,TSE,Action,Recommision
+18,wk18_199671350818,160,TSE,Action,Voltage readings
+18,wk18_199671350818,170,Dealer,Complaint,Other
+18,wk18_199671350818,124,TSE,Question,MIDC
+19,wk19_199810741209,175,TSE,Analysis,Connection
+19,wk19_199810741209,148,TSE,Analysis,Team
+19,wk19_199810741209,179,TSE,Analysis,Connection
+19,wk19_199810741209,164,TSE,Question,Component
+19,wk19_199810741209,131,TSE,Action,Photos
+19,wk19_199810741209,120,TSE,Action,Photos
+19,wk19_199810741209,230,TSE,Complaint,Other
+19,wk19_199810741209,305,TSE,Complaint,Process
+19,wk19_199812489362,91,TSE,Analysis,Photos
+19,wk19_199812489362,112,Dealer,Action,Add CTs
+19,wk19_199812489362,296,Dealer,Question,Component
+19,wk19_199812489362,161,TSE,Request,Photos
+19,wk19_199812489362,175,TSE,Request,Photos
+19,wk19_199812489362,182,Dealer,Action,Email
+19,wk19_199812489362,663,TSE,Analysis,Photos
+19,wk19_199812489362,97,TSE,Request,Photos
+19,wk19_199812489362,145,TSE,Question,Component
+19,wk19_199812489362,93,TSE,Question,Component
+19,wk19_199929595141,333,TSE,Request,Screenshots
+19,wk19_199929595141,429,TSE,Analysis,Photos
+19,wk19_199929595141,1063,TSE,Question,Wi-Fi
+19,wk19_199929595141,399,TSE,Action,Power status
+19,wk19_199929811017,171,TSE,Question,RPO switch
+19,wk19_199929811017,190,Dealer,Analysis,Error
+19,wk19_199929811017,285,TSE,Request,Photos
+19,wk19_199929811017,129,Dealer,Complaint,Process
+19,wk19_199929811017,93,TSE,Request,Screenshots
+19,wk19_199930059363,102,TSE,Question,Power status
+20,wk20_200125798129,155,TSE,Question,PTO status
+20,wk20_200125798129,124,TSE,Request,Moving breaker
+20,wk20_200190122578,259,TSE,Request,Restart
+20,wk20_200190122578,209,Dealer,Action,Firmware
+20,wk20_200190122578,317,TSE,Analysis,Connection
+20,wk20_200190122578,328,TSE,Request,Connect to Wi-Fi
+20,wk20_200190975975,127,TSE,Request,Restart
+20,wk20_200190975975,258,TSE,Analysis,Photos
+20,wk20_200190975975,134,Dealer,Action,Recommision
+20,wk20_200190975975,148,TSE,Action,Recommision
+20,wk20_200190975975,126,TSE,Request,Screenshots
+20,wk20_200190975975,148,TSE,Question,Component
+20,wk20_200190975975,126,Dealer,Complaint,Process
+20,wk20_200190975975,134,TSE,Analysis,Team
+20,wk20_200190975975,171,TSE,Analysis,Error
+20,wk20_200190975975,372,Dealer,Analysis,Connection
+20,wk20_200190975975,201,TSE,Request,Photos
+20,wk20_200243456130,167,TSE,Question,Power status
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
